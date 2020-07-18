@@ -104,4 +104,4 @@ bot.on("guildMemberAdd", member => {
   }
 });
 
-bot.login("NzMzNzcyODgyOTY2MjE2ODY1.XxMGVg._WVoEHw9H9jz4x0z9LgYqwBcTqY"); // Get the bot to connect to Discord
+bot.login('NzMzNzcyODgyOTY2MjE2ODY1.XxMGVg._WVoEHw9H9jz4x0z9LgYqwBcTqY'); // Get the bot to connect to Discord
