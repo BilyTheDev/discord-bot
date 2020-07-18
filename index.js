@@ -124,4 +124,13 @@ bot.on("guildMemberAdd", member => {
     member.roles.add("706590856668381285");
 });
 
+bot.on("messageDelete", msg => {
+const channel = bot.channels.fetch("734173675137531906");
+channel.send("**DETAILS FOR THE MESSAGE SENT BY THE USER WITH ID " + msg.member.id + ":**");
+channel.send("``Message Sent by: " + TagUser(msg.member.id) + "``");
+channel.send("``Date sent: " + msg.createdAt.toString() + "``");
+channel.send("```MESSAGE CONTENT: ```");
+channel.send("```" + msg.content + "```");
+});
+
 bot.login('NzMzNzcyODgyOTY2MjE2ODY1.XxMGVg._WVoEHw9H9jz4x0z9LgYqwBcTqY'); // Get the bot to connect to Discord
