@@ -90,9 +90,8 @@ bot.on("message", async msg => {
   if (
     msg.content.toLowerCase().includes("fuck") ||
     msg.content.toLowerCase().includes("nigg") ||
-    msg.content.toLowerCase().includes(" ass") ||
+    msg.content.toLowerCase().includes(" ass ") ||
     msg_lowercase === "ass" || 
-    msg_lowercase.includes ("ass ") || 
     msg_lowercase.includes ("asshole") ||
     msg_lowercase.includes ("pussy") 
   ) {
