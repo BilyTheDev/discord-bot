@@ -22,15 +22,18 @@ bot.on("message", async msg => {
     const ping = Math.round(message.createdTimestamp - msg.createdTimestamp);
 
     if (ping <= 0) {
-      return message.edit('Please try again...');
+      message.edit('Please try again...');
     }
 
-    return message.edit(
+    else
+    { 
+     message.edit(
       stripIndents`
       🏓 P${'o'.repeat(Math.ceil(ping / 100))}ng: \`${ping}ms\`
       💓 Heartbeat: \`${Math.round(msg.client.ping)}ms\`
       `,
     );
+    }
   }
   if (msg.member.id == "733772882966216865") return;
 
