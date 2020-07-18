@@ -86,10 +86,15 @@ bot.on("message", async msg => {
     hash_map.delete(msg.member.id);
     hash_map2.delete(msg.member.id);
   }
+  const msg_lowercase = msg.content.toLowerCase();
   if (
     msg.content.toLowerCase().includes("fuck") ||
     msg.content.toLowerCase().includes("nigg") ||
-    msg.content.toLowerCase().includes(" ass")
+    msg.content.toLowerCase().includes(" ass") ||
+    msg_lowercase === "ass" || 
+    msg_lowercase.includes ("ass ") || 
+    msg_lowercase.includes ("asshole") ||
+    msg_lowercase.includes ("pussy") 
   ) {
     await msg.channel.send(
       `We do not tolerate these kinds of words ${TagUser(
