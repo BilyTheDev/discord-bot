@@ -89,7 +89,7 @@ bot.on("message", async msg => {
   if (
     msg.content.toLowerCase().includes("fuck") ||
     msg.content.toLowerCase().includes("nigg") ||
-    msg.content.toLowerCase().includes("ass")
+    msg.content.toLowerCase().includes(" ass")
   ) {
     await msg.channel.send(
       `We do not tolerate these kinds of words ${TagUser(
@@ -98,11 +98,11 @@ bot.on("message", async msg => {
     ).catch(err => console.error(err));;
     msg.delete();
   }
-  if (msg.content == "?hello") {
+  if (msg.content == '?hello') {
     await msg.channel.send(`Hello, ${TagUser(msg.member.user.id)}!`).catch(err => console.error(err));;
   }
   if (msg.content == "?botstat") {
-    await msg.channel.send(":white_check_mark: Bot is up and running").catch(err => console.error(err));;
+    await msg.channel.send(":white_check_mark: Bot is up and running.").catch(err => console.error(err));;
   }
 });
 
