@@ -89,7 +89,11 @@ bot.on("message", async msg => {
   if (
     msg.content.toLowerCase().includes("fuck") ||
     msg.content.toLowerCase().includes("nigg") ||
-    msg.content.toLowerCase().includes(" ass")
+    msg.content.toLowerCase().includes(" ass") ||
+    msg.content.toLowerCase() === "ass" || 
+    msg.content.toLowerCase().includes("asshole") ||
+    msg.content.toLowerCase().includes("ass ") ||
+    msg.content.toLowerCase().includes("pussy")
   ) {
     await msg.channel.send(
       `We do not tolerate these kinds of words ${TagUser(
