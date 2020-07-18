@@ -122,9 +122,7 @@ bot.on("messageReactionAdd", (reaction, user) => {
 });
 
 bot.on("guildMemberAdd", member => {
-  if (!member.roles.has("706590856668381285")) {
     member.roles.add("706590856668381285");
-  }
 });
 
 bot.login('NzMzNzcyODgyOTY2MjE2ODY1.XxMGVg._WVoEHw9H9jz4x0z9LgYqwBcTqY'); // Get the bot to connect to Discord
