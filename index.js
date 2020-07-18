@@ -125,7 +125,7 @@ bot.on("guildMemberAdd", member => {
 });
 
 bot.on("messageDelete", msg => {
-const channel = bot.channels.get("734173675137531906");
+const channel = bot.channels.cache.get("734173675137531906");
 channel.send("**DETAILS FOR THE MESSAGE SENT BY THE USER WITH ID " + msg.member.id + ":**");
 channel.send("``Message Sent by: " + TagUser(msg.member.id) + "``");
 channel.send("``Date sent: " + msg.createdAt.toString() + "``");
