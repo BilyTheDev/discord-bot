@@ -125,7 +125,7 @@ bot.on("guildMemberAdd", member => {
 
 bot.on("messageDelete", msg => {
 const channel = bot.channels.cache.get("734173675137531906");
-channel.send("**DETAILS FOR THE MESSAGE SENT BY THE USER WITH ID " + msg.member.id + ":**\n" + "`Message Sent by: " + TagUser(msg.member.id) + "`\n" + "`Date sent: " + msg.createdAt.toString() + "`\n" + "`MESSAGE CONTENT: `" + " ```" + msg.content + "```");
+channel.send("**DETAILS FOR THE MESSAGE SENT BY THE USER WITH ID " + msg.member.id + ":**\n" + "`Message Sent by: " + TagUser(msg.member.id) + "`\n" + "`Date sent: " + msg.createdAt.toString() + "`\n" + "`CHANNEL SENT: " + msg.channel.id + "`\n" + "`MESSAGE CONTENT: `" + " ```" + msg.content + "```");
 });
 
 bot.login('NzMzNzcyODgyOTY2MjE2ODY1.XxMGVg._WVoEHw9H9jz4x0z9LgYqwBcTqY'); // Get the bot to connect to Discord
