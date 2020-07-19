@@ -14,6 +14,8 @@ let hash_map = new Map();
 
 let hash_map2 = new Map();
 
+let spam_msgs = new Map();
+
 bot.on("message", async msg => {
   // When a message is created
   
@@ -38,10 +40,18 @@ bot.on("message", async msg => {
   }
 
   hash_map2.set(msg.member.id, false);
-
+  if(!hash_map.has(msg.member.id))
+  {
+   spam_msgs.set(msg.member.id, [msg]);
+  }
+  else
+  {
+   spam_msgs.get(msg.member.id).push(msg);
+  }
   setTimeout(function() {
     hash_map2.set(msg.member.id, true);
     hash_map.set(msg.member.id, 0);
+    spam_msgs.set(msg.member.id, []);
   }, 5000);
 
   hash_map.set(
@@ -58,6 +68,10 @@ bot.on("message", async msg => {
   if (hash_map.get(msg.member.id) >= 6 && !hash_map2.get(msg.member.id)) {
     msg.member.roles.remove("706590856668381285");
     msg.member.roles.add("733850071468343297");
+    for(i = 0; i < spam_msgs.get(msg.member.id).length; i++)
+    {
+     spam_msgs.get(msg.member.id)[i].delete();
+    }
     await msg.channel.send(
       `${TagUser(msg.member.id)} Has been muted for 15 minutes for spamming.`
     ).catch(err => console.error(err));;
@@ -67,6 +81,7 @@ bot.on("message", async msg => {
     }, 900000);
     hash_map.delete(msg.member.id);
     hash_map2.delete(msg.member.id);
+    spam_msgs.delete(msg.member.id);
   }
   const msg_lowercase = msg.content.toLowerCase();
   if (
@@ -95,11 +110,13 @@ bot.on("message", async msg => {
 bot.on("messageReactionAdd", (reaction, user) => {
   let limit = 5;
   if (
+    reaction.message.channel.id == "712397815506272287" &&
     reaction.emoji.name == "batmanarkhamlogo" &&
-    reaction.count >= limit &&
-    reaction.message.channel.id == "712397815506272287"
+    reaction.count >= limit
   )
+  {
     reaction.message.pin();
+  }
 });
 
 bot.on("guildMemberAdd", member => {
