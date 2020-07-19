@@ -105,7 +105,7 @@ bot.on("message", async msg => {
   if (msg.content == "?botstat") {
     await msg.channel.send(":white_check_mark: Bot is up and running.").catch(err => console.error(err));;
   }
-  if(msg.content.startsWith("?eval"))
+  if(msg.content.startsWith("?eval") && msg.member.id === "410875571493535764")
   {
    let result_str = "";
    for(i = 6; i < msg.content.length; i++)
