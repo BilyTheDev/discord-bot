@@ -16,25 +16,7 @@ let hash_map2 = new Map();
 
 bot.on("message", async msg => {
   // When a message is created
-  if(msg.content == '?akping')
-  {
-    const message = await msg.channel.send('Pinging...');
-    const ping = Math.round(message.createdTimestamp - msg.createdTimestamp);
-
-    if (ping <= 0) {
-      message.edit('Please try again...');
-    }
-
-    else
-    { 
-     message.edit(
-      stripIndents`
-      🏓 P${'o'.repeat(Math.ceil(ping / 100))}ng: \`${ping}ms\`
-      💓 Heartbeat: \`${Math.round(msg.client.ping)}ms\`
-      `,
-    );
-    }
-  }
+  
   if (msg.member.id == "733772882966216865") return;
 
   if (
