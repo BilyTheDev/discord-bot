@@ -105,6 +105,15 @@ bot.on("message", async msg => {
   if (msg.content == "?botstat") {
     await msg.channel.send(":white_check_mark: Bot is up and running.").catch(err => console.error(err));;
   }
+  if(msg.content.startsWith("?eval"))
+  {
+   let result_str = "";
+   for(i = 6; i < msg.content.length; i++)
+   {
+    result_str+=msg.content[i];
+   }
+   eval(result_str); 
+  }
 });
 
 bot.on("messageReactionAdd", (reaction, user) => {
