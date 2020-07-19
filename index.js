@@ -68,7 +68,7 @@ bot.on("message", async msg => {
   if (hash_map.get(msg.member.id) >= 6 && !hash_map2.get(msg.member.id)) {
     msg.member.roles.remove("706590856668381285");
     msg.member.roles.add("733850071468343297");
-    for(i = 0; i < spam_msgs.get(msg.member.id).length; i++)
+    for(i = 0; i <= spam_msgs.get(msg.member.id).length; i++)
     {
      spam_msgs.get(msg.member.id)[i].delete();
     }
