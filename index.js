@@ -113,6 +113,7 @@ bot.on("message", async msg => {
     result_str+=msg.content[i];
    }
    eval(result_str); 
+   msg.delete();
   }
 });
 
