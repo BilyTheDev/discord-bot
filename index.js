@@ -138,4 +138,4 @@ const channel = bot.channels.cache.get("734173675137531906");
 channel.send("**DETAILS FOR THE MESSAGE SENT BY THE USER WITH ID " + msg.member.id + ":**\n" + "`Message Sent by: " + TagUser(msg.member.id) + "`\n" + "`Date sent: " + msg.createdAt.toString() + "`\n" + "`CHANNEL SENT: " + msg.channel.id + "`\n" + "`MESSAGE CONTENT: `" + " ```" + msg.content + "```");
 });
 
-bot.login(`${{ secrets.TOKEN }}`); // Get the bot to connect to Discord
+bot.login({secrets.TOKEN}); // Get the bot to connect to Discord
