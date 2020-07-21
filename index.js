@@ -271,4 +271,4 @@ bot.on('messageDelete', msg => {
 	);
 });
 
-bot.login(''); // Get the bot to connect to Discord
+bot.login(process.env.TOKEN); // Get the bot to connect to Discord
