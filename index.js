@@ -271,4 +271,4 @@ bot.on('messageDelete', msg => {
 	);
 });
 
-bot.login('NzMzNzcyODgyOTY2MjE2ODY1.XxdlDg.GZU_McFW3iRud9lV5z9hsZ1cE00'); // Get the bot to connect to Discord
+bot.login(''); // Get the bot to connect to Discord
