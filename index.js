@@ -69,6 +69,8 @@ let hash_map2 = new Map();
 
 let spam_msgs = new Map();
 
+let UserIsNotInWarning = new Map();
+
 bot.on('message', async msg => {
 	// When a message is created
 	if (msg.member.id == '733772882966216865') return;
@@ -100,6 +102,23 @@ bot.on('message', async msg => {
 			.catch(err => console.error(err));
 	}
 
+	const mg_low = msg.content.toLowerCase();
+	for(i = 0; i < msg.content.length; i++)
+	{
+		if(msg.content.split(mg_low.charAt(i)).length >= 75)
+		{
+			if(UserIsNotInWarning.has(msg.member.id))
+			{
+			 UserIsNotInWarning.set(msg.member.id, UserIsNotInWarning.get(msg.member.id)+1);
+			}
+			else
+			{
+				UserIsNotInWarning.set(msg.member.id, 1);
+			}
+			break;
+		}
+	}
+
 	hash_map2.set(msg.member.id, false);
 	if (!hash_map.has(msg.member.id)) {
 		spam_msgs.set(msg.member.id, [msg]);
@@ -123,7 +142,7 @@ bot.on('message', async msg => {
 		})()
 	);
 
-	if (hash_map.get(msg.member.id) >= 5 && !hash_map2.get(msg.member.id)) {
+	if ((hash_map.get(msg.member.id) >= 5 && !hash_map2.get(msg.member.id)) || UserIsNotInWarning.get(msg.member.id) >= 2) {
 		msg.member.roles.remove('706590856668381285');
 		msg.member.roles.add('733850071468343297');
 		for (i = 0; i < spam_msgs.get(msg.member.id).length; i++) {
@@ -181,7 +200,7 @@ bot.on('message', async msg => {
 	//end of calling report
 
 	const msg_lowercase = msg.content.toLowerCase();
-	if (
+	if ((
 		msg.content.toLowerCase().includes('fuck') ||
 		msg.content.toLowerCase().includes('nigg') ||
 		msg_lowercase.includes('asshole') ||
@@ -201,7 +220,7 @@ bot.on('message', async msg => {
 		(msg_lowercase.includes('👉') && msg_lowercase.includes('👌')) ||
 		msg_lowercase.includes(' bitch') ||
 		msg_lowercase.includes('bitch ')
-	) {
+	)) {
 		await msg.channel
 			.send(
 				`We do not tolerate these kinds of words ${TagUser(
