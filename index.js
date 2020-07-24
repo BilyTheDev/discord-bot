@@ -252,15 +252,17 @@ bot.on('message', async msg => {
 		msg.delete();
 	}
 });
-
+let sent = false;
 bot.on('messageReactionAdd', (reaction, user) => {
 	let limit = 1;
 	if (
 		reaction.message.channel.id == '712397815506272287' &&
 		reaction.emoji.name == 'batmanarkhamlogo' &&
-		reaction.count == limit
+		reaction.count == limit && 
+                !sent
 	) {
 	   bot.channels.fetch('736083047257997342').then(channel => channel.send(TagUser(reaction.message.member.id), reaction.message.attachments.array()[0]));
+	   sent = true;
 	}
 });
 
