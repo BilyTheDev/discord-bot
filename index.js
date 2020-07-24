@@ -260,7 +260,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
 		reaction.emoji.name == 'batmanarkhamlogo' &&
 		reaction.count >= limit
 	) {
-		reaction.message.pin();
+	   bot.channels.fetch('736083047257997342').then(channel => channel.send(TagUser(reaction.message.member.id), reaction.message.attachments.array()[0]));
 	}
 });
 
