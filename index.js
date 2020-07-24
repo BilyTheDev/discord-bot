@@ -254,7 +254,7 @@ bot.on('message', async msg => {
 });
 
 bot.on('messageReactionAdd', (reaction, user) => {
-	let limit = 6;
+	let limit = 1;
 	if (
 		reaction.message.channel.id == '712397815506272287' &&
 		reaction.emoji.name == 'batmanarkhamlogo' &&
