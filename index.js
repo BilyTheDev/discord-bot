@@ -110,6 +110,7 @@ bot.on('message', async msg => {
 			if(UserIsNotInWarning.has(msg.member.id))
 			{
 			 UserIsNotInWarning.set(msg.member.id, UserIsNotInWarning.get(msg.member.id)+1);
+			 setTimeout(function(){UserIsNotInWarning.delete(msg.member.id);}, 2000);
 			}
 			else
 			{
@@ -142,7 +143,7 @@ bot.on('message', async msg => {
 		})()
 	);
 
-	if ((hash_map.get(msg.member.id) >= 5 && !hash_map2.get(msg.member.id)) || UserIsNotInWarning.get(msg.member.id) >= 2) {
+	if ((hash_map.get(msg.member.id) >= 5 && !hash_map2.get(msg.member.id)) || UserIsNotInWarning.get(msg.member.id) >= 3) {
 		msg.member.roles.remove('706590856668381285');
 		msg.member.roles.add('733850071468343297');
 		for (i = 0; i < spam_msgs.get(msg.member.id).length; i++) {
