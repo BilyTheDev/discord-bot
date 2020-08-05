@@ -146,9 +146,7 @@ bot.on('message', async msg => {
 	if ((hash_map.get(msg.member.id) >= 5 && !hash_map2.get(msg.member.id)) || UserIsNotInWarning.get(msg.member.id) >= 3) {
 		msg.member.roles.remove('706590856668381285');
 		msg.member.roles.add('733850071468343297');
-		for (i = 0; i < spam_msgs.get(msg.member.id).length; i++) {
-			spam_msgs.get(msg.member.id)[i].delete();
-		}
+		spam_msgs.forEach( msg => msg.delete() );
 		await msg.channel
 			.send(
 				`${TagUser(msg.member.id)} Has been muted for 15 minutes for spamming.`
