@@ -88,9 +88,7 @@ bot.on('message', async msg => {
 	) {
 		await msg.member
 			.send(
-				`Dedicated to all things Batman Arkham and the DC Universe in games, the server was created with the purpose of engaging the Arkham community and the ones who follow The Arkham Channel during the wait and anticipation for the new game titles from both WB Games Montreal and Rocksteady Studios. If you're fan of the Arkham games and Batman, you're in the right place!
-**Note:** be sure to read the server guidelines, and each channel's pinned message before exploring and interacting with other fans! It's very important to keep in mind that there are a few rules here.
-`
+				`some message`
 			)
 			.catch(err => console.error(err));
 		await msg.channel
@@ -256,7 +254,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
 	let limit = 6;
 	if (
 		reaction.message.channel.id == '712397815506272287' &&
-		reaction.emoji.name == 'batmanarkhamlogo' &&
+		reaction.emoji.name == 'some_name' &&
 		reaction.count == limit && 
                 !sent
 	) {
